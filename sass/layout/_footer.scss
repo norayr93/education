@@ -1,0 +1,105 @@
+.main-footer {
+	padding: 7rem 0;
+	background-color: $color-background;
+	
+	@include respond(tab-land) {
+		padding: 2rem 0;
+	}
+	
+	&__table {
+		width: 90%;
+		margin: 0 auto 10rem auto;
+		border-collapse: collapse;
+		line-height: 1.5;
+		
+		@include respond(tab-land) {
+			margin-bottom: 2rem;
+		}
+		
+		& tr {
+			font-size: 1.6rem;
+			font-weight: 500;
+			color: $color-white;
+			
+			@include respond(tab-land) {
+				font-size: 1.4rem;
+				font-weight: 400;
+				line-height: 1;
+			}
+		}
+		
+		& td,
+		& th {
+			text-align: left;
+			padding: .5rem 2rem;
+			
+			@include respond(tab-land) {
+				padding: 1rem 1rem;
+				margin: 1.5rem;
+			}
+		}
+		
+		& a {
+			font-size: 1.4rem;
+			font-weight: 300;
+			color: $color-grey-light;
+			transition: all .3s;
+			
+			&:hover {
+				color: $color-primary;
+			}
+		}
+	}
+	
+	&__form {
+		position: absolute;
+		display: flex;
+		font-size: 0;
+	}
+	
+	&__form input[type='email'] {
+		padding: 1rem 2.5rem;
+		border: none;
+		font-size: 1.6rem;
+		
+		@include respond(tab-port) { // width < 900?
+			padding: .7rem 1.5rem;
+		}
+	}
+	
+	&__form input[type='submit'] {
+		padding: 1rem;
+		cursor: pointer;
+		background-color: $color-primary;
+		border: none;
+		font-size: 1.6rem;
+		transition: all .3s;
+		
+		&:hover {
+			background-color: $color-grey-dark;
+			color: $color-white;
+		}
+	}
+	
+	&__copyright {
+		padding: 1rem 3.5rem;
+		display: flex;
+		justify-content: space-around;
+		
+		@include respond(tab-port) { // width < 900?
+			padding: 1rem 1.5rem;
+			line-height: 1.25;
+		}
+	}
+}
+
+.page-author {
+	display: inline-block;
+	margin-left: 1rem;
+	color: $color-primary;
+	transition: all .5s;
+	
+	&:hover {
+		transform: skewY(15deg) scale(1.5);
+	}
+}

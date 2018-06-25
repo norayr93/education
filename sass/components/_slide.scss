@@ -1,0 +1,135 @@
+.slide {
+	display: flex;
+	flex-wrap: wrap;
+	margin-bottom: 5rem;
+
+	&__item {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		flex: 0 0 25%;
+		padding: 0 1.5rem;
+		text-align: center;
+		line-height: 1.5;
+		
+		& a {
+			display: block;
+			margin: .5rem 0;
+			font-size: 1.8rem;
+			font-weight: 600;
+			color: $color-black;
+			transition: all .3s;
+			
+			&:hover {
+				color: $color-primary;
+			}
+		}
+		
+		&_hidden {
+			display: none;
+		}
+	}
+	
+	&__image {
+		display: block;
+		height: 100%;
+		transition: all .3s;
+	}
+	
+	&__item:hover &__image {
+		transform: scale(1.1);
+		
+		&_rotate {
+			overflow: visible;
+			transform: scale(1.1) rotate(3deg);
+		}
+	}
+	
+	&__item_horizontal {
+		display: flex;
+		flex-direction: row;
+		flex:1 0 48%;
+		text-align: left;
+		margin-bottom: 2rem;
+		
+		@include respond(tab-land) {
+			justify-content: initial;
+			margin-right: 2rem;
+		}
+	}
+	
+	&__box {
+		height: 18rem;
+		position: relative;
+		overflow: hidden;
+		
+		&_horizontal {
+			height: auto;
+		}
+		
+		@include respond(tab-port) {
+			height: 16rem;
+		}
+	}
+	
+	&__figcaption {
+		width: 100%;
+		padding: 0 1rem;
+		display: flex;
+		color: $color-white;
+		font-weight: 300;
+		
+		position: absolute;
+		top: 85%;
+		
+		& p {
+			display: flex;
+			align-items: center;
+		}
+		
+		& p:first-child {
+			margin-right: 1.5rem;
+		}
+		
+		& svg {
+			width: 1.3rem;
+			height: 1.3rem;
+			fill: $color-white;
+			margin-right: .7rem;
+		}
+		
+		& .price {
+			margin-left: auto;
+			font-size: 1.6rem;
+			font-weight: 600;
+		}
+	}
+	
+	&__caption {
+		padding: 1rem 2rem;
+		flex-basis: 60%;
+		
+		& a {
+			padding: 1rem 0 .5rem 0;
+		}
+		
+		@include respond(tab-land) {
+			padding: 0;
+			margin-left: 1rem;
+		}
+	}
+}
+
+.slide-button {
+	display: flex;
+	justify-content: center;
+	
+	&__indicator {
+		width: 2rem;
+		height: 2rem;
+		border: 1px solid red;
+		border-radius: 50%;
+		margin-right: 2rem;
+		background-color: transparent;
+	}
+}

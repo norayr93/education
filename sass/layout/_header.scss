@@ -1,0 +1,258 @@
+@import "../abstracts/variables";
+@import "../abstracts/mixins";
+
+.header {
+	padding-top: .1px; // for collapsing
+	height: 100vh;
+	background: linear-gradient(to right, rgba($color-background, .8), rgba($color-background, .8)), url("../img/banner-bg.jpg") right;
+	
+	////////////////////////////////////////
+	// TAB-PORT BUTTON
+	.tab-port {
+		display: none;
+		border: 0;
+		position: absolute;
+		right: 8rem;
+		top: 3.5rem;
+		background-color: transparent;
+		
+		@include respond(tab-port) {
+			display: initial;
+		}
+		
+		&__icon {
+			position: relative;
+			
+			&,
+			&::after,
+			&::before {
+				width: 3rem;
+				height: 2px;
+				display: inline-block;
+				background-color: $color-white;
+			}
+			
+			&::after,
+			&::before {
+				content: '';
+				position: absolute;
+				left: 0;
+			}
+			
+			&::after {
+				top: -1rem;
+			}
+			
+			&::before {
+				top: 1rem;
+			}
+		}
+		
+		
+	}
+	////////////////////////////////////////
+	// SOCIAL AND CONTACTS
+	
+	&__info {
+		padding: .8rem;
+		position: fixed;
+		width: 100%;
+		z-index: 100;
+		background-color: $color-black;
+	}
+	
+	///////////////////////////////////
+	// MENU
+	&__navigation {
+		position: fixed;
+		z-index: 100;
+		top: 3.5rem;
+		left: 0;
+		right: 0;
+		font-weight: 600;
+		transition: all .8s;
+		
+		hr {
+			border: 0;
+			height: 1px;
+			max-width: 114rem;
+			margin: 0 auto;
+			background: #333 linear-gradient(to right, $color-grey-dark, $color-white, $color-grey-dark);
+			
+			@include respond(tab-land) { // width < 1200?
+				max-width: 96rem;
+			}
+		}
+		
+		&_scrolled {
+			background-color: rgba($color-black, .9);
+		}
+	}
+	
+	&__navbar {
+		display: flex;
+		justify-content: space-between;
+		padding: 2rem 1rem;
+		/*border-bottom: 1px solid $border-bottom;*/
+	}
+	
+	&__logo {
+		display: block;
+	}
+	
+	&__list {
+		display: flex;
+		align-self: center;
+		
+		@include respond(tab-port) {
+			position: fixed;
+			top: 0;
+			left: 0;
+			z-index: 100;
+			width: 30vw;
+			height: 100vh;
+			padding-top: 1.8rem;
+			display: flex;
+			flex-direction: column;
+			background-color: rgba($color-black, .8);
+		}
+	}
+	
+	&__item {
+		position: relative;
+		
+		@include respond(tab-port) {
+			margin-right: 0;
+		}
+		
+		&:not(:last-child) {
+			margin-right: 3rem;
+			
+			@include respond(tab-port) {
+				margin-right: 0;
+			}
+		}
+		
+		&_dropdown {
+			
+			& .lnr-chevron-down {
+				display: inline-block;
+				margin-left: .5rem;
+				
+				@include respond(tab-port) {
+					font-size: 3rem;
+					line-height: 4rem;
+				}
+			}
+			
+			& ul {
+				width: 25rem;
+				padding-left: 1rem;
+				opacity: 0;
+				visibility: hidden;
+				position: absolute;
+				top: 165%;
+				right: 0;
+				outline: 0;
+				background: $color-white;
+				transition: all .3s .3s;
+				
+				@include respond(tab-port) {
+					position: initial;
+					background-color: transparent;
+					padding-left: 3rem;
+				}
+				
+				& a {
+					display: inline-block;
+					padding: .5rem;
+					text-transform: uppercase;
+					font-weight: 400;
+					color: $color-black;
+					transition: all .3s;
+					
+					&:focus + ul {
+						opacity: 1;
+						visibility: visible;
+					}
+					
+					@include respond(tab-port) {
+						color: $color-white;
+					}
+					
+					&:hover {
+						@extend %link-hover;
+						
+						@include respond(tab-port) {
+							transform: none;
+						}
+					}
+				}
+			}
+			
+			.arrow-down_active {   // JAVASCRIPT
+				display: block;
+				opacity: 1;
+				visibility: visible;
+			}
+			
+			
+		}
+		
+		&:hover > ul {
+			opacity: 1;
+			visibility: visible;
+		}
+	}
+	
+	&__link {
+		display: inline-block;
+		height: 100%;
+		transition: all .3s;
+		
+		&:link,
+		&:visited {
+			font-size: 1.2rem;
+			font-weight: 500;
+			color: $color-white;
+			text-transform: uppercase;
+			
+			@include respond(tab-port) {
+				display: flex;
+				justify-content: space-between;
+				padding: 1rem 2.2rem 1rem 1.5rem;
+				font-size: 1.8rem;
+				font-weight: 400;
+				color: $color-white;
+			}
+		}
+		
+		&:hover {
+			@extend %link-hover;
+			
+			@include respond(tab-port) {
+				transform: none;
+			}
+		}
+		
+	}
+	
+	&__text-box {
+		width: 70%;
+		padding: 8rem 1.5rem;
+		margin-top: 15rem;
+		
+		@include respond(tab-land) { // width < 1200?
+			padding: 6rem 1.5rem;
+		}
+		
+		@include respond(tab-port) { // width < 900?
+			width: 90%;
+			padding: 4rem 3rem;
+		}
+	}
+	
+}
+
+
+

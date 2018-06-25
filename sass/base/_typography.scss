@@ -1,0 +1,60 @@
+.heading-primary {
+	margin-bottom: 1.5rem;
+	font-size: 4.8rem;
+	font-weight: 600;
+	line-height: 1.2;
+	text-transform: uppercase;
+	color: $color-white;
+	
+	@include respond(tab-port) { // width < 900?
+		font-size: 4.5rem;
+		margin-bottom: 1.1rem;
+	}
+}
+
+.quotation {
+	display: block;
+	padding: 1.5rem 0;
+	margin-bottom: 2.5rem;
+	font-size: 1.2rem;
+	line-height: 1.5;
+	text-transform: initial;
+	color: $text-color;
+	
+	&::before,
+	&::after {
+		content: '';
+	}
+}
+
+.courses__heading {
+	@extend %heading-secondary;
+	color: $color-black;
+}
+
+.search-course__heading {
+	@extend %heading-secondary;
+	color: $color-white;
+	line-height: 1.2;
+}
+
+.upcoming-events__heading {
+	@extend %heading-secondary;
+	color: $color-black;
+}
+
+.instructor__heading {
+	@extend %heading-secondary;
+	margin-bottom: 1rem;
+}
+
+.blog-posts__heading {
+	@extend %heading-secondary;
+	color: $color-black;
+}
+
+.to-blog__heading {
+	@extend %heading-secondary;
+	margin: 0;
+	color: $color-white;
+}
