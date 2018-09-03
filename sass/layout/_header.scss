@@ -1,54 +1,75 @@
-@import "../abstracts/variables";
-@import "../abstracts/mixins";
+// @import "../abstracts/variables";
+// @import "../abstracts/mixins";
 
 .header {
 	padding-top: .1px; // for collapsing
 	height: 100vh;
 	background: linear-gradient(to right, rgba($color-background, .8), rgba($color-background, .8)), url("../img/banner-bg.jpg") right;
+	background-size: cover;
+
+	&__navigation-checkbox {
+		display: none;
+	}
 	
 	////////////////////////////////////////
 	// TAB-PORT BUTTON
-	.tab-port {
+	&__navigation-button {
 		display: none;
 		border: 0;
 		position: absolute;
+		z-index: 101;
 		right: 8rem;
 		top: 3.5rem;
 		background-color: transparent;
 		
 		@include respond(tab-port) {
 			display: initial;
+			outline: 0;
+		}
+	}
+
+	&__navigation-icon {
+		position: relative;
+		
+		&,
+		&::after,
+		&::before {
+			width: 3rem;
+			height: 2px;
+			display: inline-block;
+			background-color: $color-white;
 		}
 		
-		&__icon {
-			position: relative;
-			
-			&,
-			&::after,
-			&::before {
-				width: 3rem;
-				height: 2px;
-				display: inline-block;
-				background-color: $color-white;
-			}
-			
-			&::after,
-			&::before {
-				content: '';
-				position: absolute;
-				left: 0;
-			}
-			
-			&::after {
-				top: -1rem;
-			}
-			
-			&::before {
-				top: 1rem;
-			}
+		&::after,
+		&::before {
+			content: '';
+			display: inline-block;
+			position: absolute;
+			left: 0;
+			transition: all .3s linear;
 		}
 		
+		&::after {
+			top: -1rem;
+		}
 		
+		&::before {
+			top: 1rem;
+		}
+	}
+
+	&__navigation-checkbox:checked + &__navigation-button &__navigation-icon {
+		background-color: transparent;
+	}
+
+	&__navigation-checkbox:checked + &__navigation-button &__navigation-icon::before {
+		top: 0;
+		transform: rotate(45deg);
+	}
+
+	&__navigation-checkbox:checked + &__navigation-button &__navigation-icon::after {
+		top: 0;
+		transform: rotate(-45deg);
 	}
 	////////////////////////////////////////
 	// SOCIAL AND CONTACTS
@@ -57,7 +78,7 @@
 		padding: .8rem;
 		position: fixed;
 		width: 100%;
-		z-index: 100;
+		z-index: 98;
 		background-color: $color-black;
 	}
 	
@@ -65,7 +86,7 @@
 	// MENU
 	&__navigation {
 		position: fixed;
-		z-index: 100;
+		z-index: 98;
 		top: 3.5rem;
 		left: 0;
 		right: 0;
@@ -106,15 +127,20 @@
 		
 		@include respond(tab-port) {
 			position: fixed;
+			z-index: 101;
 			top: 0;
-			left: 0;
-			z-index: 100;
+			left: -33rem;
 			width: 30vw;
 			height: 100vh;
 			padding-top: 1.8rem;
 			display: flex;
 			flex-direction: column;
 			background-color: rgba($color-black, .8);
+			transition: all .2s linear;
+
+			&_visible {
+				left: 0;
+			}
 		}
 	}
 	
@@ -158,6 +184,7 @@
 				transition: all .3s .3s;
 				
 				@include respond(tab-port) {
+					display: none;
 					position: initial;
 					background-color: transparent;
 					padding-left: 3rem;
@@ -170,11 +197,6 @@
 					font-weight: 400;
 					color: $color-black;
 					transition: all .3s;
-					
-					&:focus + ul {
-						opacity: 1;
-						visibility: visible;
-					}
 					
 					@include respond(tab-port) {
 						color: $color-white;
@@ -195,8 +217,10 @@
 				opacity: 1;
 				visibility: visible;
 			}
-			
-			
+
+			.dropdown-list {
+				display: block;
+			}
 		}
 		
 		&:hover > ul {
@@ -254,5 +278,14 @@
 	
 }
 
+.back-overlay {
+	width: 100%;
+    height: 100%;
+    z-index: 97;
+    top: 0;
+    left: 0;
+    position: fixed;
+	background: rgba(0,0,0,0.7);
+}
 
 

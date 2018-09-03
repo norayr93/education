@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "autoprefixer": "^8.5.1",
+    "live-server": "^1.2.0",
     "normalize.css": "^8.0.0",
     "postcss-cli": "^5.0.0"
   }
