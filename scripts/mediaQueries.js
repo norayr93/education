@@ -8,7 +8,7 @@ const tabPort = () => {
     let backOverlay = document.querySelector('.header-layout');
     let navigationCheckbox = document.querySelector('.header__navigation-checkbox');
 
-	if (window.innerWidth < 900) {
+
         headerListToggleButton.addEventListener('click', () => {
             headerList.classList.toggle('header__list_visible');
             backOverlay.classList.toggle('back-overlay');
@@ -31,7 +31,7 @@ const tabPort = () => {
         dropdownItemSecond.addEventListener('click', (e) => {
             dropdownListSecond.classList.toggle('dropdown-list');
         });
-    }
+
 };
 
 
