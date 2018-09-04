@@ -217,6 +217,8 @@
 				
 				@include respond(tab-port) {
 					display: none;
+					visibility: visible;
+					opacity: 1;
 					position: initial;
 					background-color: transparent;
 					padding-left: 3rem;

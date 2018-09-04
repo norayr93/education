@@ -764,6 +764,8 @@ button:-moz-focusring,
       @media only screen and (max-width: 56.25em) {
         .header__item_dropdown ul {
           display: none;
+          visibility: visible;
+          opacity: 1;
           position: initial;
           background-color: transparent;
           padding-left: 3rem; } }
