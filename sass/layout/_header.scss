@@ -214,12 +214,19 @@
 				& a {
 					display: inline-block;
 					padding: .5rem;
+					font-size: 1.2rem;
 					text-transform: uppercase;
 					font-weight: 400;
 					color: $color-black;
 					transition: all .3s;
 					
 					@include respond(tab-port) {
+						font-size: 1.4rem;
+						color: $color-white;
+					}
+
+					@include respond(phone) {
+						font-size: 1.2rem;
 						color: $color-white;
 					}
 					
@@ -247,6 +254,7 @@
 		&:hover > ul {
 			opacity: 1;
 			visibility: visible;
+			box-shadow: 0px 2px 10px 1px rgba(128,123,128,1);
 		}
 	}
 	

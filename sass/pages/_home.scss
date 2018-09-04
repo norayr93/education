@@ -27,12 +27,6 @@
 			margin: 0 auto 3rem auto;
 			font-size: 1.8rem;	
 		}
-
-		& > h3 {
-			@include respond(phone) {
-				background-color: $color-primary;
-			}	
-		}
 		
 		&:hover {
 			
@@ -56,6 +50,7 @@
 
 		@include respond(phone) {
 			font-size: 2.2rem;
+			background-color: $color-primary;
 		}
 	}
 	
