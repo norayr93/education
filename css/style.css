@@ -733,8 +733,10 @@ button:-moz-focusring,
     .header__item_dropdown a {
       display: flex;
       align-items: center; }
+      .header__item_dropdown a:hover span.lnr-down {
+        border-color: #f7631b !important; }
     .header__item_dropdown .lnr-down {
-      margin-left: .5rem;
+      margin-left: 1rem;
       display: inline-block;
       width: 10px;
       height: 10px;

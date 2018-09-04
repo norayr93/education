@@ -176,10 +176,14 @@
 			& a {
 				display: flex;
 				align-items: center;
+
+				&:hover span.lnr-down {
+					border-color: $color-primary !important;
+				}
 			}
 			
 			& .lnr-down {
-				margin-left: .5rem;
+				margin-left: 1rem;
 				display: inline-block;
 				width: 10px;
 				height: 10px;
