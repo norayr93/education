@@ -7,6 +7,8 @@ const tabPort = () => {
     let headerListToggleButton = document.querySelector('.header__navigation-button');
     let backOverlay = document.querySelector('.header-layout');
     let navigationCheckbox = document.querySelector('.header__navigation-checkbox');
+    let linearDownFirst = document.querySelectorAll('.lnr-down')[0];
+    let linearDownSecond = document.querySelectorAll('.lnr-down')[1];
 
     headerListToggleButton.addEventListener('click', () => {
         headerList.classList.toggle('header__list_visible');
@@ -25,12 +27,16 @@ const tabPort = () => {
 
     dropdownItemFirst.addEventListener('click', (e) => {
         dropdownListFirst.classList.toggle('dropdown-list');
-        e.target.classList.toggle('lnr-chevron-up');
+        if (window.innerWidth < 900) {
+            linearDownFirst.classList.toggle('lnr-up');
+        }
     });
 
     dropdownItemSecond.addEventListener('click', (e) => {
         dropdownListSecond.classList.toggle('dropdown-list');
-        e.target.classList.toggle('lnr-chevron-up');
+        if (window.innerWidth < 900) {
+            linearDownSecond.classList.toggle('lnr-up');
+        }
     });
 
 };
