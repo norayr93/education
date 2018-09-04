@@ -16,6 +16,10 @@
 		//Change for the <button> element
 		border: none;
 		cursor: pointer;
+
+		@include respond(phone) {
+			font-size: 2.2rem;
+		}
 	}
 	
 	&_orange {
@@ -95,6 +99,14 @@
 			@extend %absolute-centering;
 			font-size: 1.65rem;
 			color: $color-grey-lighter;
+
+			@include respond(tab-port) {
+				font-size: 1.9rem;
+			}
+
+			// @include respond(phone) {
+			// 	font-size: 2.4rem;
+			// }
 		}
 		
 		&:hover {
@@ -116,6 +128,9 @@
 				height: 2rem;
 				color: $color-white;
 				left: 15rem;
+				display: flex;
+				justify-content: center;
+				align-items: center;
 			}
 		}
 	}

@@ -4,15 +4,56 @@
 .header {
 	padding-top: .1px; // for collapsing
 	height: 100vh;
-	background: linear-gradient(to right, rgba($color-background, .8), rgba($color-background, .8)), url("../img/banner-bg.jpg") right;
+	background: linear-gradient(to right, rgba($color-background, .8), rgba($color-background, .8)), url("../img/banner-bg.jpg") 75% 50%;
 	background-size: cover;
+
+	////////////////////////////////////////
+	// SOCIAL AND CONTACTS
+	
+	&__info {
+		padding: .8rem;
+		position: fixed;
+		width: 100%;
+		z-index: 98;
+		background-color: $color-black;
+	}
 
 	&__navigation-checkbox {
 		display: none;
 	}
 	
-	////////////////////////////////////////
-	// TAB-PORT BUTTON
+	///////////////////////////////////
+	// MENU
+	&__navigation {
+		position: fixed;
+		z-index: 98;
+		top: 3.49rem;
+		left: 0;
+		right: 0;
+		font-weight: 600;
+		transition: all .8s;
+
+		@include respond(phone) {
+			top: 6.49rem;
+		}		
+		
+		hr {
+			border: 0;
+			height: 1px;
+			max-width: 114rem;
+			margin: 0 auto;
+			background: #333 linear-gradient(to right, $color-grey-dark, $color-white, $color-grey-dark);
+			
+			@include respond(tab-land) {
+				max-width: 96rem;
+			}
+		}
+		
+		&_scrolled {
+			background-color: rgba($color-black, .9);
+		}
+	}
+
 	&__navigation-button {
 		display: none;
 		border: 0;
@@ -25,6 +66,11 @@
 		@include respond(tab-port) {
 			display: initial;
 			outline: 0;
+		}
+
+		@include respond(phone) {
+			right: 2rem;
+			top: 4rem;	
 		}
 	}
 
@@ -71,44 +117,6 @@
 		top: 0;
 		transform: rotate(-45deg);
 	}
-	////////////////////////////////////////
-	// SOCIAL AND CONTACTS
-	
-	&__info {
-		padding: .8rem;
-		position: fixed;
-		width: 100%;
-		z-index: 98;
-		background-color: $color-black;
-	}
-	
-	///////////////////////////////////
-	// MENU
-	&__navigation {
-		position: fixed;
-		z-index: 98;
-		top: 3.5rem;
-		left: 0;
-		right: 0;
-		font-weight: 600;
-		transition: all .8s;
-		
-		hr {
-			border: 0;
-			height: 1px;
-			max-width: 114rem;
-			margin: 0 auto;
-			background: #333 linear-gradient(to right, $color-grey-dark, $color-white, $color-grey-dark);
-			
-			@include respond(tab-land) { // width < 1200?
-				max-width: 96rem;
-			}
-		}
-		
-		&_scrolled {
-			background-color: rgba($color-black, .9);
-		}
-	}
 	
 	&__navbar {
 		display: flex;
@@ -129,7 +137,7 @@
 			position: fixed;
 			z-index: 101;
 			top: 0;
-			left: -33rem;
+			left: -40rem;
 			width: 30vw;
 			height: 100vh;
 			padding-top: 1.8rem;
@@ -141,6 +149,10 @@
 			&_visible {
 				left: 0;
 			}
+		}
+
+		@include respond(phone) {
+			width: 45vw;	
 		}
 	}
 	
@@ -170,6 +182,10 @@
 					line-height: 4rem;
 				}
 			}
+
+			& .lnr-chevron-up {
+				transform: rotate(180deg);
+			}
 			
 			& ul {
 				width: 25rem;
@@ -188,6 +204,11 @@
 					position: initial;
 					background-color: transparent;
 					padding-left: 3rem;
+				}
+
+				@include respond(phone) {
+					visibility: visible;
+					opacity: 1;
 				}
 				
 				& a {
@@ -266,13 +287,19 @@
 		padding: 8rem 1.5rem;
 		margin-top: 15rem;
 		
-		@include respond(tab-land) { // width < 1200?
+		@include respond(tab-land) {
 			padding: 6rem 1.5rem;
 		}
 		
 		@include respond(tab-port) { // width < 900?
 			width: 90%;
-			padding: 4rem 3rem;
+			padding: 11rem 3rem;
+		}
+
+		@include respond(phone) {
+			width: 100%;
+			padding: 0 1.5rem;
+			margin-top: 40rem;
 		}
 	}
 	

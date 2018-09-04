@@ -9,4 +9,8 @@
 	@include respond(tab-port) { // width < 900?
 		max-width: 78rem;
 	}
+
+	// @include respond(phone) { // width < 600?
+	// 	max-width: 64rem;
+	// }
 }

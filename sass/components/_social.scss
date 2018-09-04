@@ -3,6 +3,10 @@
 	justify-content: space-between;
 	align-items: center;
 	padding: 0 1rem;
+
+	@include respond(phone) {
+		flex-direction: column;	
+	}
 	
 	&__contacts {
 		font-size: 1.2rem;
@@ -21,6 +25,14 @@
 
 .social-list {
 	display: flex;
+
+	@include respond(phone) {
+		margin-top: 1.5rem;
+	}
+
+	@include respond(phone) {
+		margin: 1rem 0;
+	}
 	
 	&__item {
 		margin-right: 1.5rem;
@@ -34,6 +46,11 @@
 		fill: $color-white;
 		cursor: pointer;
 		transition: all .5s;
+
+		@include respond(phone) {
+			width: 2rem;
+			height: 2rem;	
+		}
 		
 		&_background {
 			width: 3rem;

@@ -21,9 +21,8 @@
 	text-transform: initial;
 	color: $text-color;
 	
-	&::before,
-	&::after {
-		content: '';
+	@include respond(phone) {
+		font-size: 1.6rem;	
 	}
 }
 
@@ -57,4 +56,8 @@
 	@extend %heading-secondary;
 	margin: 0;
 	color: $color-white;
+
+	@include respond(phone) {
+		margin-bottom: 1rem;
+	}
 }

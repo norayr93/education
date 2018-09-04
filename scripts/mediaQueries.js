@@ -8,29 +8,30 @@ const tabPort = () => {
     let backOverlay = document.querySelector('.header-layout');
     let navigationCheckbox = document.querySelector('.header__navigation-checkbox');
 
+    headerListToggleButton.addEventListener('click', () => {
+        headerList.classList.toggle('header__list_visible');
+        backOverlay.classList.toggle('back-overlay');
+    });
 
-        headerListToggleButton.addEventListener('click', () => {
-            headerList.classList.toggle('header__list_visible');
-            backOverlay.classList.toggle('back-overlay');
-        });
+    backOverlay.addEventListener('click', () => {
+        headerList.classList.toggle('header__list_visible');
+        backOverlay.classList.toggle('back-overlay');
+        navigationCheckbox.checked = !navigationCheckbox.checked;
+    });
 
-        backOverlay.addEventListener('click', () => {
-            headerList.classList.toggle('header__list_visible');
-            backOverlay.classList.toggle('back-overlay');
-            navigationCheckbox.checked = !navigationCheckbox.checked;
-        })
+    headerList.addEventListener('blur', () => {
+        headerList.classList.toggle('header__list_visible');
+    });
 
-        headerList.addEventListener('blur', () => {
-            headerList.classList.toggle('header__list_visible');
-        });
+    dropdownItemFirst.addEventListener('click', (e) => {
+        dropdownListFirst.classList.toggle('dropdown-list');
+        e.target.classList.toggle('lnr-chevron-up');
+    });
 
-        dropdownItemFirst.addEventListener('click', (e) => {
-            dropdownListFirst.classList.toggle('dropdown-list');
-        });
-
-        dropdownItemSecond.addEventListener('click', (e) => {
-            dropdownListSecond.classList.toggle('dropdown-list');
-        });
+    dropdownItemSecond.addEventListener('click', (e) => {
+        dropdownListSecond.classList.toggle('dropdown-list');
+        e.target.classList.toggle('lnr-chevron-up');
+    });
 
 };
 
