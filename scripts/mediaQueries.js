@@ -25,14 +25,14 @@ const tabPort = () => {
         headerList.classList.toggle('header__list_visible');
     });
 
-    dropdownItemFirst.addEventListener('click', (e) => {
+    dropdownItemFirst.addEventListener('click', () => {
         dropdownListFirst.classList.toggle('dropdown-list');
         if (window.innerWidth < 900) {
             linearDownFirst.classList.toggle('lnr-up');
         }
     });
 
-    dropdownItemSecond.addEventListener('click', (e) => {
+    dropdownItemSecond.addEventListener('click', () => {
         dropdownListSecond.classList.toggle('dropdown-list');
         if (window.innerWidth < 900) {
             linearDownSecond.classList.toggle('lnr-up');
