@@ -23,18 +23,18 @@
 	}
 	
 	///////////////////////////////////
-	// MENU
+	// NAVIGATION
 	&__navigation {
 		position: fixed;
 		z-index: 98;
-		top: 3.49rem;
+		top: 4.5rem;
 		left: 0;
 		right: 0;
 		font-weight: 600;
 		transition: all .8s;
 
 		@include respond(phone) {
-			top: 6.49rem;
+			top: 8.7rem;
 		}		
 		
 		hr {

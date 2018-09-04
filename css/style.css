@@ -268,6 +268,12 @@ button:-moz-focusring,
     font-size: 1.2rem;
     font-weight: 300;
     line-height: 1.625; }
+    @media only screen and (max-width: 56.25em) {
+      .social__contacts {
+        font-size: 1.8rem; } }
+    @media only screen and (max-width: 37.5em) {
+      .social__contacts {
+        font-size: 2rem; } }
     .social__contacts > :first-child {
       margin-right: 1rem; }
     .social__contacts a {
@@ -632,14 +638,14 @@ button:-moz-focusring,
   .header__navigation {
     position: fixed;
     z-index: 98;
-    top: 3.49rem;
+    top: 4.5rem;
     left: 0;
     right: 0;
     font-weight: 600;
     transition: all .8s; }
     @media only screen and (max-width: 37.5em) {
       .header__navigation {
-        top: 6.49rem; } }
+        top: 8.7rem; } }
     .header__navigation hr {
       border: 0;
       height: 1px;
