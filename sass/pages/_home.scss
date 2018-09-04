@@ -29,7 +29,9 @@
 		}
 
 		& > h3 {
-			background-color: $color-primary;
+			@include respond(phone) {
+				background-color: $color-primary;
+			}	
 		}
 		
 		&:hover {
