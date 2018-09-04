@@ -806,7 +806,8 @@ button:-moz-focusring,
           width: 100%; } }
     .header__item:hover > ul {
       opacity: 1;
-      visibility: visible; }
+      visibility: visible;
+      box-shadow: 0px 2px 10px 1px #807b80; }
   .header__link {
     display: inline-block;
     height: 100%;
