@@ -459,6 +459,7 @@ button:-moz-focusring,
     position: relative;
     overflow: hidden; }
     .slide__box_horizontal {
+      flex-basis: 40%;
       height: auto; }
     @media only screen and (max-width: 56.25em) {
       .slide__box {
@@ -497,17 +498,6 @@ button:-moz-focusring,
     @media only screen and (max-width: 37.5em) {
       .slide__caption {
         flex-basis: 40%; } }
-
-.slide-button {
-  display: flex;
-  justify-content: center; }
-  .slide-button__indicator {
-    width: 2rem;
-    height: 2rem;
-    border: 1px solid red;
-    border-radius: 50%;
-    margin-right: 2rem;
-    background-color: transparent; }
 
 .select-box {
   position: relative;
