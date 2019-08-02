@@ -2,356 +2,357 @@
 // @import "../abstracts/mixins";
 
 .header {
-	padding-top: .1px; // for collapsing
-	height: 100vh;
-	background: linear-gradient(to right, rgba($color-background, .8), rgba($color-background, .8)), url("../img/banner-bg.jpg") 75% 50%;
-	background-size: cover;
+  padding-top: 0.1px; // for collapsing
+  height: 100vh;
+  background: linear-gradient(to right, rgba($color-background, 0.8), rgba($color-background, 0.8)),
+    url('../img/banner-bg.jpg') 75% 50%;
+  background-size: cover;
 
-	////////////////////////////////////////
-	// SOCIAL AND CONTACTS
-	
-	&__info {
-		padding: .8rem;
-		position: fixed;
-		width: 100%;
-		z-index: 98;
-		background-color: $color-black;
-	}
+  ////////////////////////////////////////
+  // SOCIAL AND CONTACTS
 
-	&__navigation-checkbox {
-		display: none;
-	}
-	
-	///////////////////////////////////
-	// NAVIGATION
-	&__navigation {
-		position: fixed;
-		z-index: 98;
-		top: 3.5rem;
-		left: 0;
-		right: 0;
-		font-weight: 600;
-		transition: all .8s;
+  &__info {
+    padding: 0.8rem;
+    position: fixed;
+    width: 100%;
+    z-index: 98;
+    background-color: $color-black;
+  }
 
-		@include respond(tab-port) {
-			top: 4.5rem;
-		}
+  &__navigation-checkbox {
+    display: none;
+  }
 
-		@include respond(phone) {
-			top: 8.7rem;
-		}		
-		
-		hr {
-			border: 0;
-			height: 1px;
-			max-width: 114rem;
-			margin: 0 auto;
-			background: #333 linear-gradient(to right, $color-grey-dark, $color-white, $color-grey-dark);
-			
-			@include respond(tab-land) {
-				max-width: 96rem;
-			}
-		}
-		
-		&_scrolled {
-			background-color: rgba($color-black, .9);
-		}
-	}
+  ///////////////////////////////////
+  // NAVIGATION
+  &__navigation {
+    position: fixed;
+    z-index: 98;
+    top: 3.5rem;
+    left: 0;
+    right: 0;
+    font-weight: 600;
+    transition: all 0.8s;
 
-	&__navigation-button {
-		display: none;
-		border: 0;
-		position: absolute;
-		z-index: 101;
-		right: 8rem;
-		top: 3.5rem;
-		background-color: transparent;
-		
-		@include respond(tab-port) {
-			display: initial;
-			outline: 0;
-		}
+    @include respond(tab-port) {
+      top: 4.5rem;
+    }
 
-		@include respond(phone) {
-			right: 2rem;
-			top: 4rem;	
-		}
-	}
+    @include respond(phone) {
+      top: 8.7rem;
+    }
 
-	&__navigation-icon {
-		position: relative;
-		
-		&,
-		&::after,
-		&::before {
-			width: 3rem;
-			height: 2px;
-			display: inline-block;
-			background-color: $color-white;
-		}
-		
-		&::after,
-		&::before {
-			content: '';
-			display: inline-block;
-			position: absolute;
-			left: 0;
-			transition: all .3s linear;
-		}
-		
-		&::after {
-			top: -1rem;
-		}
-		
-		&::before {
-			top: 1rem;
-		}
-	}
+    hr {
+      border: 0;
+      height: 1px;
+      max-width: 114rem;
+      margin: 0 auto;
+      background: #333 linear-gradient(to right, $color-grey-dark, $color-white, $color-grey-dark);
 
-	&__navigation-checkbox:checked + &__navigation-button &__navigation-icon {
-		background-color: transparent;
-	}
+      @include respond(tab-land) {
+        max-width: 96rem;
+      }
+    }
 
-	&__navigation-checkbox:checked + &__navigation-button &__navigation-icon::before {
-		top: 0;
-		transform: rotate(45deg);
-	}
+    &_scrolled {
+      background-color: rgba($color-black, 0.9);
+    }
+  }
 
-	&__navigation-checkbox:checked + &__navigation-button &__navigation-icon::after {
-		top: 0;
-		transform: rotate(-45deg);
-	}
-	
-	&__navbar {
-		display: flex;
-		justify-content: space-between;
-		padding: 2rem 1rem;
-		/*border-bottom: 1px solid $border-bottom;*/
-	}
-	
-	&__logo {
-		display: block;
-	}
-	
-	&__list {
-		display: flex;
-		align-self: center;
-		
-		@include respond(tab-port) {
-			position: fixed;
-			z-index: 101;
-			top: 0;
-			left: -40rem;
-			width: 30vw;
-			height: 100vh;
-			padding-top: 1.8rem;
-			display: flex;
-			flex-direction: column;
-			background-color: rgba($color-black, .8);
-			transition: all .2s linear;
+  &__navigation-button {
+    display: none;
+    border: 0;
+    position: absolute;
+    z-index: 101;
+    right: 8rem;
+    top: 2.5rem;
+    background-color: transparent;
+    cursor: pointer;
 
-			&_visible {
-				left: 0;
-			}
-		}
+    @include respond(tab-port) {
+      display: initial;
+      outline: 0;
+    }
 
-		@include respond(phone) {
-			width: 45vw;	
-		}
-	}
-	
-	&__item {
-		position: relative;
-		
-		@include respond(tab-port) {
-			margin-right: 0;
-		}
-		
-		&:not(:last-child) {
-			margin-right: 3rem;
-			
-			@include respond(tab-port) {
-				margin-right: 0;
-			}
-		}
-		
-		&_dropdown {
+    @include respond(phone) {
+      right: 2rem;
+      top: 4rem;
+    }
+  }
 
-			& a {
-				display: flex;
-				align-items: center;
+  &__navigation-icon {
+    position: relative;
+    top: 1rem;
 
-				&:hover span.lnr-down {
-					border-color: $color-primary !important;
-				}
-			}
-			
-			& .lnr-down {
-				margin-left: 1rem;
-				display: inline-block;
-				width: 10px;
-				height: 10px;
-				margin-top: -3px;
-				border-bottom: 1px solid white;
-				border-right: 1px solid white;
-				transform: rotate(45deg);
+    &,
+    &::after,
+    &::before {
+      width: 3rem;
+      height: 2px;
+      display: inline-block;
+      background-color: $color-white;
+    }
 
-				
-				@include respond(tab-port) {
-					font-size: 3rem;
-					line-height: 4rem;
-				}
-			}
+    &::after,
+    &::before {
+      content: '';
+      display: inline-block;
+      position: absolute;
+      left: 0;
+      transition: all 0.3s linear;
+    }
 
-			& .lnr-up {
-				transform: rotate(225deg);
-			}
-			
-			& ul {
-				width: 25rem;
-				padding-left: 1rem;
-				opacity: 0;
-				visibility: hidden;
-				position: absolute;
-				top: 165%;
-				right: 0;
-				outline: 0;
-				background: $color-white;
-				transition: all .3s .3s;
-				
-				@include respond(tab-port) {
-					display: none;
-					visibility: visible;
-					opacity: 1;
-					position: initial;
-					background-color: transparent;
-					padding-left: 3rem;
-				}
+    &::after {
+      top: -1rem;
+    }
 
-				@include respond(phone) {
-					visibility: visible;
-					opacity: 1;
-				}
-				
-				& a {
-					display: inline-block;
-					padding: .5rem;
-					font-size: 1.2rem;
-					text-transform: uppercase;
-					font-weight: 400;
-					color: $color-black;
-					transition: all .3s;
-					
-					@include respond(tab-port) {
-						font-size: 1.4rem;
-						color: $color-white;
-					}
+    &::before {
+      top: 1rem;
+    }
+  }
 
-					@include respond(phone) {
-						font-size: 1.2rem;
-						color: $color-white;
-					}
-					
-					&:hover {
-						@extend %link-hover;
-						
-						@include respond(tab-port) {
-							transform: none;
-						}
-					}
-				}
-			}
-			
-			.arrow-down_active {   // JAVASCRIPT
-				display: block;
-				opacity: 1;
-				visibility: visible;
-			}
+  &__navigation-checkbox:checked + &__navigation-button &__navigation-icon {
+    background-color: transparent;
+  }
 
-			.dropdown-list {
-				display: block;
-				box-shadow: 0px 2px 10px 1px rgba(128,123,128,1);
+  &__navigation-checkbox:checked + &__navigation-button &__navigation-icon::before {
+    top: 0;
+    transform: rotate(45deg);
+  }
 
-				@include respond(tab-port) {
-					width: 100%;
-				}
-	
-				@include respond(phone) {
-					width: 100%;
-				}
-			}
-		}
-		
-		&:hover > ul {
-			opacity: 1;
-			visibility: visible;
-			box-shadow: 0px 2px 10px 1px rgba(128,123,128,1);
-		}
-	}
-	
-	&__link {
-		display: inline-block;
-		height: 100%;
-		transition: all .3s;
-		
-		&:link,
-		&:visited {
-			font-size: 1.2rem;
-			font-weight: 500;
-			color: $color-white;
-			text-transform: uppercase;
-			
-			@include respond(tab-port) {
-				display: flex;
-				justify-content: space-between;
-				padding: 1rem 2.2rem 1rem 1.5rem;
-				font-size: 1.8rem;
-				font-weight: 400;
-				color: $color-white;
-			}
-		}
-		
-		&:hover {
-			@extend %link-hover;
-			
-			@include respond(tab-port) {
-				transform: none;
-			}
-		}
-		
-	}
-	
-	&__text-box {
-		width: 70%;
-		padding: 8rem 1.5rem;
-		margin-top: 15rem;
-		
-		@include respond(tab-land) {
-			padding: 6rem 1.5rem;
-		}
-		
-		@include respond(tab-port) { // width < 900?
-			width: 90%;
-			padding: 11rem 3rem;
-		}
+  &__navigation-checkbox:checked + &__navigation-button &__navigation-icon::after {
+    top: 0;
+    transform: rotate(-45deg);
+  }
 
-		@include respond(phone) {
-			width: 100%;
-			padding: 0 1.5rem;
-			margin-top: 30rem;
-		}
-	}
-	
+  &__navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem 1rem;
+    /*border-bottom: 1px solid $border-bottom;*/
+  }
+
+  &__logo {
+    display: block;
+  }
+
+  &__list {
+    display: flex;
+    align-self: center;
+
+    @include respond(tab-port) {
+      position: fixed;
+      z-index: 101;
+      top: 0;
+      left: -40rem;
+      width: 30vw;
+      height: 100vh;
+      padding-top: 1.8rem;
+      display: flex;
+      flex-direction: column;
+      background-color: rgba($color-black, 0.8);
+      transition: all 0.2s linear;
+
+      &_visible {
+        left: 0;
+      }
+    }
+
+    @include respond(phone) {
+      width: 45vw;
+    }
+  }
+
+  &__item {
+    position: relative;
+
+    @include respond(tab-port) {
+      margin-right: 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    &:not(:last-child) {
+      margin-right: 3rem;
+
+      @include respond(tab-port) {
+        margin-right: 0;
+      }
+    }
+
+    &_dropdown {
+      & a {
+        display: flex;
+        align-items: center;
+
+        &:hover span.lnr-down {
+          border-color: $color-primary !important;
+        }
+      }
+
+      & .lnr-down {
+        margin-left: 1rem;
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        margin-top: -3px;
+        border-bottom: 1px solid white;
+        border-right: 1px solid white;
+        transform: rotate(45deg);
+
+        @include respond(tab-port) {
+          font-size: 3rem;
+          line-height: 4rem;
+        }
+      }
+
+      & .lnr-up {
+        transform: rotate(225deg);
+      }
+
+      & ul {
+        width: 25rem;
+        padding-left: 1rem;
+        opacity: 0;
+        visibility: hidden;
+        position: absolute;
+        top: 165%;
+        right: 0;
+        outline: 0;
+        background: $color-white;
+        transition: all 0.3s 0.3s;
+
+        @include respond(tab-port) {
+          display: none;
+          visibility: visible;
+          opacity: 1;
+          position: initial;
+          background-color: transparent;
+          padding-left: 3rem;
+        }
+
+        @include respond(phone) {
+          visibility: visible;
+          opacity: 1;
+        }
+
+        & a {
+          display: inline-block;
+          padding: 0.5rem;
+          font-size: 1.2rem;
+          text-transform: uppercase;
+          font-weight: 400;
+          color: $color-black;
+          transition: all 0.3s;
+
+          @include respond(tab-port) {
+            font-size: 1.4rem;
+            color: $color-white;
+          }
+
+          @include respond(phone) {
+            font-size: 1.2rem;
+            color: $color-white;
+          }
+
+          &:hover {
+            @extend %link-hover;
+
+            @include respond(tab-port) {
+              transform: none;
+            }
+          }
+        }
+      }
+
+      .arrow-down_active {
+        // JAVASCRIPT
+        display: block;
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .dropdown-list {
+        display: block;
+        box-shadow: 0px 2px 10px 1px rgba(128, 123, 128, 1);
+
+        @include respond(tab-port) {
+          width: 100%;
+        }
+
+        @include respond(phone) {
+          width: 100%;
+        }
+      }
+    }
+
+    &:hover > ul {
+      opacity: 1;
+      visibility: visible;
+      box-shadow: 0px 2px 10px 1px rgba(128, 123, 128, 1);
+    }
+  }
+
+  &__link {
+    display: inline-block;
+    height: 100%;
+    transition: all 0.3s;
+
+    &:link,
+    &:visited {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: $color-white;
+      text-transform: uppercase;
+
+      @include respond(tab-port) {
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem 2.2rem 1rem 1.5rem;
+        font-size: 1.8rem;
+        font-weight: 400;
+        color: $color-white;
+      }
+    }
+
+    &:hover {
+      @extend %link-hover;
+
+      @include respond(tab-port) {
+        transform: none;
+      }
+    }
+  }
+
+  &__text-box {
+    width: 70%;
+    padding: 8rem 1.5rem;
+    margin-top: 15rem;
+
+    @include respond(tab-land) {
+      padding: 6rem 1.5rem;
+    }
+
+    @include respond(tab-port) {
+      // width < 900?
+      width: 90%;
+      padding: 11rem 3rem;
+    }
+
+    @include respond(phone) {
+      width: 100%;
+      padding: 0 1.5rem;
+      margin-top: 30rem;
+    }
+  }
 }
 
 .back-overlay {
-	width: 100%;
-    height: 100%;
-    z-index: 97;
-    top: 0;
-    left: 0;
-    position: fixed;
-	background: rgba(0,0,0,0.7);
+  width: 100%;
+  height: 100%;
+  z-index: 97;
+  top: 0;
+  left: 0;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.7);
 }
-
-
